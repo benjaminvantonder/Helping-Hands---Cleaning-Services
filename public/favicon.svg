@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="L and S Helping Hands">
+  <rect width="64" height="64" rx="16" fill="#0F3D35"/>
+  <circle cx="14" cy="50" r="22" fill="none" stroke="#D8BC8C" stroke-opacity=".22" stroke-width="1"/>
+  <text x="32" y="42" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#FAF7F0">L<tspan fill="#D8BC8C">&amp;</tspan>S</text>
+  <circle cx="50" cy="14" r="3" fill="#B68B4C"/>
+</svg>

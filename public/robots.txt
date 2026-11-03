@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Add the production sitemap here once the domain is live, e.g.
+# Sitemap: https://your-domain.co.za/sitemap.xml
