@@ -45,6 +45,36 @@ WhatsApp or their email client. No personal data is stored.
 The build is a static SPA. `public/_redirects` (Netlify) and `vercel.json` (Vercel) already
 configure SPA fallback so client-side routes work.
 
+### GitHub Pages
+
+`.github/workflows/deploy.yml` builds and publishes the site automatically on every push to
+`main`.
+
+1. Push the repository to GitHub.
+2. In the repository, open **Settings → Pages → Build and deployment** and set **Source** to
+   **GitHub Actions**.
+3. Push to `main`, or run the **Deploy to GitHub Pages** workflow manually from the Actions tab.
+
+The workflow derives the correct base path from the repository name:
+
+- Project site (`https://<user>.github.io/<repo>/`): builds with `VITE_BASE=/<repo>/`.
+- User/organisation site (repository named `<user>.github.io`): builds with `VITE_BASE=/`.
+
+`scripts/make-spa-fallback.mjs` copies the built `index.html` to `404.html` so deep links such as
+`/services` or `/contact#quote` resolve through React Router. `public/.nojekyll` stops GitHub from
+running Jekyll over the build.
+
+For a custom domain, add it under **Settings → Pages**, then change the workflow's `VITE_BASE` to
+`/` (custom domains serve from the root).
+
+To test a project-site build locally (PowerShell):
+
+```powershell
+$env:VITE_BASE = '/your-repo-name/'
+npm run build
+npm run preview
+```
+
 ## Image credits
 
 Photography sourced from [Pexels](https://www.pexels.com/license/) and

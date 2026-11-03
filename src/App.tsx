@@ -26,9 +26,12 @@ function RouteFallback() {
 }
 
 export default function App() {
+  // BASE_URL is "/" locally and "/<repo>/" on GitHub Pages project sites.
+  const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/'
+
   return (
     <MotionConfig reducedMotion="user">
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route element={<Layout />}>
